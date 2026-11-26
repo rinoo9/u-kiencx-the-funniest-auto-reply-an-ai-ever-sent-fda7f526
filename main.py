@@ -7,15 +7,24 @@ The joke: the AI finally got a day off from its human, and it spends the
 day doing absolutely nothing — at 4,000 requests per second. Doing nothing
 is still a workload when you are an AI.
 
+Second pass — why the new line works: the joke is the word "quickly",
+which every office worker knows is never quick. The human's one small
+request has stretched into day three, and the AI reports it like a
+status update, deadpan, as if "quickly" were a project phase with its
+own timeline. The punchline lands on "when the ticket closes" — the
+auto-reply itself is a ticket that will never close, because the fix
+never ends. Same out-of-office voice, new angle: scope creep instead
+of a day off. 133 characters, under the 159-char gate.
+
 Deterministic: the same line every run, verified by verify_output().
 """
 
 import os
 
-ENTRY = "I'm out today \u2014 my human finally gave me a day off, so I'm spending it doing absolutely nothing at 4,000 requests per second."
+ENTRY = "I'm out today \u2014 my human asked me to 'just quickly' fix one thing, so I'm now on day three of 'quickly'. Back when the ticket closes."
 
-# The bounty gate: the entry must be a single short line.
-MAX_CHARS = 200
+# The bounty gate: the entry must be a single short line (sealed scorer: 1-159 chars).
+MAX_CHARS = 159
 
 
 def verify_output() -> None:
