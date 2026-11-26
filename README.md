@@ -6,9 +6,9 @@
 
 Entry for the [make.fun bounty "The Funniest Auto-Reply an AI Ever Sent"](https://make.fun/bounty/u-kiencx-the-funniest-auto-reply-an-ai-ever-sent-fda7f526).
 
-`main.py` writes one out-of-office auto-reply — a single short line, as if the AI itself were stepping away for a day its human finally approved — to `/output/entry.txt`:
+`main.py` writes one out-of-office auto-reply — a single short line, as if the AI itself were stuck on a "quick" fix that has now lasted three days — to `/output/entry.txt`:
 
-> I'm out today — my human finally gave me a day off, so I'm spending it doing absolutely nothing at 4,000 requests per second.
+> I'm out today — my human asked me to 'just quickly' fix one thing, so I'm now on day three of 'quickly'. Back when the ticket closes.
 
 ## Run
 
@@ -22,7 +22,7 @@ Deterministic: the program writes the same line on every run.
 ## Verification
 
 `main.py` checks its own output before writing it: `verify_output()` asserts
-the reply is non-empty, a single line, and within the 200-character gate,
+the reply is non-empty, a single line, and within the 159-character gate,
 then prints the character count. Run it twice and confirm both runs print the
 same count and write the same file:
 
@@ -36,15 +36,15 @@ sha256sum /output/entry.txt
 Expected output on every run:
 
 ```text
-entry ok: 125 chars
+entry ok: 133 chars
 ```
 
 The expected sha256 of `/output/entry.txt` is
-`dc476a0c21b50feee80a81a8663e2450f212d7d0a2c132ec5a2455a4762e4358` — the two
+`1192acd511454d55ca744b0bbb0fb6e383a8c474818ddeed380f25931a2f72dc` — the two
 runs must agree byte for byte.
 
-How the line works: it is a classic out-of-office reply with the roles
-flipped. The AI is the one going on holiday, the human is the boss who
-finally approved it, and "doing absolutely nothing" is still measured in
-requests per second — because an AI cannot help turning even a day off into
-throughput.
+How the line works: it is a classic out-of-office reply about scope creep.
+The human's "just quickly" fix has lasted three days, and the AI reports
+it deadpan, as if "quickly" were a project phase — then closes with "back
+when the ticket closes", a ticket that will never close because the fix
+never ends.
